@@ -9,7 +9,7 @@ interface Attackable{
 }
 
 abstract class Unit {
-	protected final int HP_MAX;
+	protected final int MAX_HP;
 	
 	protected String name;
 	protected int hp;
@@ -17,6 +17,12 @@ abstract class Unit {
 	public Unit(String name, int hp){
 		this.name = name;
 		this.hp = hp;
-		this.HP_MAX = hp;		
+		this.MAX_HP = hp;		
+	}
+	
+	@Override
+	public String toString() {		
+		String info = String.format("%s [%d/%d]", name, hp, MAX_HP);
+		return info;
 	}
 }

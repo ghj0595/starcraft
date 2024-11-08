@@ -19,14 +19,17 @@ public class StarcraftGame {
 	private Tank tank = new Tank();
 	private Scv scv = new Scv();
 	private Marine marine = new Marine();
-	private DropShip dropship = new DropShip();
+	private DropShip dropShip = new DropShip();
 	
 	public void run() {
-		
+		printUnit();
 	}
 	
 	private void printUnit() {
-		
+		System.out.println(tank);
+		System.out.println(marine);
+		System.out.println(scv);
+		System.out.println(dropShip);
 	}
 
 }
