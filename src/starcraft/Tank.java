@@ -1,5 +1,7 @@
 package starcraft;
 
-public class Tank {
-
+public class Tank extends GroundUnit {
+	Tank(){
+		super("TANK", 250);
+	}
 }

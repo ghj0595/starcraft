@@ -11,8 +11,4 @@ abstract class Unit {
 		this.hp = hp;
 		this.HP_MAX = hp;		
 	}
-	
-	abstract void flying();
-
-
 }

@@ -1,5 +1,5 @@
 package starcraft;
 
-public class DropShip {
+public class DropShip extends AirUnit {
 
 }

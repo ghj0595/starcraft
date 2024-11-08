@@ -1,5 +1,5 @@
 package starcraft;
 
-public class Scv {
+public class Scv extends GroundUnit {
 
 }

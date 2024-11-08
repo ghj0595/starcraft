@@ -1,5 +1,5 @@
 package starcraft;
 
-public class Marine {
+public class Marine extends GroundUnit {
 
 }

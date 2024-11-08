@@ -6,5 +6,4 @@ abstract class GroundUnit extends Unit {
 		super(name, hp);
 	}
 
-
 }
