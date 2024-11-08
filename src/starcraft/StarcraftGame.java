@@ -19,6 +19,7 @@ public class StarcraftGame {
 	private final int EXIT = 0;
 
 	private final int MAIN = 0;
+	private final int EMPTY = 0;
 
 	private static StarcraftGame instance = new StarcraftGame();
 
@@ -125,64 +126,91 @@ public class StarcraftGame {
 		}
 
 		if (sel == SCV) {
+			if (scvs.size() == EMPTY) {
+				System.out.println("최소 1기 이상 생산 후 이용 가능합니다.");
+				return;
+			}
 			repairScv();
 		} else if (sel == MARINE) {
 			System.out.println("이 유닛은 수리할 수 없습니다.");
 		} else if (sel == TANK) {
+			if (tanks.size() == EMPTY) {
+				System.out.println("최소 1기 이상 생산 후 이용 가능합니다.");
+				return;
+			}
 			repairTank();
 		} else if (sel == DROPSHIP) {
+			if (dropShips.size() == EMPTY) {
+				System.out.println("최소 1기 이상 생산 후 이용 가능합니다.");
+				return;
+			}
 			repairDropShip();
 		}
 	}
 
-	private void printDamagedScv() {
+	private boolean printDamagedScv() {
 		for (int i = 0; i < scvs.size(); i++) {
 			Scv scv = scvs.get(i);
 			if (scv.hp < scv.MAX_HP) {
 				System.out.print(i + "번 ");
 				System.out.println(scv);
+				return false;
 			}
 		}
+		return true;
 	}
 
 	private void repairScv() {
-		printDamagedScv();
+		if (printDamagedScv()) {
+			System.out.println("수리할 유닛이 없습니다.");
+			return;
+		}
 
 		int index = input("수리할 유닛 번호 선택");
 
 		scvs.get(MAIN).repair(scvs.get(index));
 	}
 
-	private void printDamagedTank() {
+	private boolean printDamagedTank() {
 		for (int i = 0; i < tanks.size(); i++) {
 			Tank tank = tanks.get(i);
 			if (tank.hp < tank.MAX_HP) {
 				System.out.print(i + "번 ");
 				System.out.println(tank);
+				return false;
 			}
 		}
+		return true;
 	}
 
 	private void repairTank() {
-		printDamagedTank();
+		if (printDamagedTank()) {
+			System.out.println("수리할 유닛이 없습니다.");
+			return;
+		}
 
 		int index = input("수리할 유닛 번호 선택");
 
 		scvs.get(MAIN).repair(tanks.get(index));
 	}
 
-	private void printDamagedDropShip() {
+	private boolean printDamagedDropShip() {
 		for (int i = 0; i < dropShips.size(); i++) {
 			DropShip dropShip = dropShips.get(i);
 			if (dropShip.hp < dropShip.MAX_HP) {
 				System.out.print(i + "번 ");
 				System.out.println(dropShip);
+				return false;
 			}
 		}
+		return true;
 	}
 
 	private void repairDropShip() {
-		printDamagedDropShip();
+		if (printDamagedDropShip()) {
+			System.out.println("수리할 유닛이 없습니다.");
+			return;
+		}
 
 		int index = input("수리할 유닛 번호 선택");
 
