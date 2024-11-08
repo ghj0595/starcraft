@@ -1,9 +1,11 @@
 package starcraft;
 
 public class Scv extends GroundUnit implements Repairable {
+	private int power;
 	
 	public Scv(){
 		super("SCV", 200);
+		this.power = 10;
 	}
 	
 	protected void repair(Repairable unit) {
@@ -21,5 +23,9 @@ public class Scv extends GroundUnit implements Repairable {
 			}
 			System.out.println("수리 완료!");
 		}
+	}
+	
+	public void Attackable(Unit unit) {
+		unit.hp -= this.power;
 	}
 }

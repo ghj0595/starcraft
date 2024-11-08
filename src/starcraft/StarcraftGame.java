@@ -1,5 +1,7 @@
 package starcraft;
 
+import java.util.Scanner;
+
 public class StarcraftGame {
 	
 	private StarcraftGame() {
@@ -12,13 +14,19 @@ public class StarcraftGame {
 		return instance;
 	}
 	
+	private Scanner scanner = new Scanner(System.in);
+	
+	private Tank tank = new Tank();
+	private Scv scv = new Scv();
+	private Marine marine = new Marine();
+	private DropShip dropship = new DropShip();
+	
 	public void run() {
-		setUnit();
+		
 	}
 	
-	private void setUnit() {
-		Tank tank = new Tank();
-		Scv scv = new Scv();
+	private void printUnit() {
+		
 	}
 
 }
