@@ -1,8 +1,8 @@
 package starcraft;
 
-public class DropShip extends AirUnit {
+public class DropShip extends AirUnit implements Repairable {
 	
-	DropShip(){
+	public DropShip(){
 		super("DROPSHIP", 300);
 	}
 	

@@ -13,8 +13,12 @@ public class StarcraftGame {
 	}
 	
 	public void run() {
-		
-		
+		setUnit();
+	}
+	
+	private void setUnit() {
+		Tank tank = new Tank();
+		Scv scv = new Scv();
 	}
 
 }

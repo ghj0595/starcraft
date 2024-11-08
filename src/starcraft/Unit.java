@@ -1,5 +1,13 @@
 package starcraft;
 
+interface Repairable{
+	
+}
+
+interface Attackable{
+	public void attack(Unit unit);
+}
+
 abstract class Unit {
 	protected final int HP_MAX;
 	

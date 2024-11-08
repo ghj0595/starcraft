@@ -2,7 +2,7 @@ package starcraft;
 
 public class Marine extends GroundUnit {
 	
-	Marine(){
+	public Marine(){
 		super("MARINE", 150);
 	}
 

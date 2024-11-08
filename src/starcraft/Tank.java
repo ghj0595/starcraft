@@ -1,7 +1,7 @@
 package starcraft;
 
-public class Tank extends GroundUnit {
-	Tank(){
+public class Tank extends GroundUnit implements Repairable {
+	public Tank(){
 		super("TANK", 250);
 	}
 }
