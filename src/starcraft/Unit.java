@@ -17,7 +17,10 @@ abstract class Unit {
 	public Unit(String name, int hp){
 		this.name = name;
 		this.hp = hp;
-		this.MAX_HP = hp;		
+		this.MAX_HP = hp;
+		
+		String message = String.format("%s 생산 완료!", name);
+		System.out.println(message);
 	}
 	
 	@Override
