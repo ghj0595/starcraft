@@ -18,6 +18,8 @@ public class StarcraftGame {
 	private final int REPAIR = 2;
 	private final int EXIT = 0;
 
+	private final int MAIN = 0;
+
 	private static StarcraftGame instance = new StarcraftGame();
 
 	public static StarcraftGame getInstance() {
@@ -42,8 +44,8 @@ public class StarcraftGame {
 
 	private void play() {
 		int sel = input("메뉴 선택");
-		
-		if(sel < EXIT || sel > REPAIR) {
+
+		if (sel < EXIT || sel > REPAIR) {
 			System.out.println("메뉴 번호를 다시 확인해주세요.");
 			return;
 		}
@@ -61,8 +63,8 @@ public class StarcraftGame {
 	private void produceUnit() {
 		printUnitMenu();
 		int sel = input("번호 선택");
-		
-		if(sel < SCV || sel > DROPSHIP) {
+
+		if (sel < SCV || sel > DROPSHIP) {
 			System.out.println("번호를 다시 확인해주세요.");
 			return;
 		}
@@ -82,17 +84,17 @@ public class StarcraftGame {
 		Scv scv = new Scv();
 		scvs.add(scv);
 	}
-	
+
 	private void produceMarine() {
 		Marine marine = new Marine();
 		marines.add(marine);
 	}
-	
+
 	private void produceTank() {
 		Tank tank = new Tank();
 		tanks.add(tank);
 	}
-	
+
 	private void dropShip() {
 		DropShip dropShip = new DropShip();
 		dropShips.add(dropShip);
@@ -113,10 +115,79 @@ public class StarcraftGame {
 	}
 
 	private void repair() {
+		printUnitMenu();
 
+		int sel = input("번호 선택");
+
+		if (sel < SCV || sel > DROPSHIP) {
+			System.out.println("번호를 다시 확인해주세요.");
+			return;
+		}
+
+		if (sel == SCV) {
+			repairScv();
+		} else if (sel == MARINE) {
+			System.out.println("이 유닛은 수리할 수 없습니다.");
+		} else if (sel == TANK) {
+			repairTank();
+		} else if (sel == DROPSHIP) {
+			repairDropShip();
+		}
 	}
-	
 
+	private void printDamagedScv() {
+		for (int i = 0; i < scvs.size(); i++) {
+			Scv scv = scvs.get(i);
+			if (scv.hp < scv.MAX_HP) {
+				System.out.print(i + "번 ");
+				System.out.println(scv);
+			}
+		}
+	}
+
+	private void repairScv() {
+		printDamagedScv();
+
+		int index = input("수리할 유닛 번호 선택");
+
+		scvs.get(MAIN).repair(scvs.get(index));
+	}
+
+	private void printDamagedTank() {
+		for (int i = 0; i < tanks.size(); i++) {
+			Tank tank = tanks.get(i);
+			if (tank.hp < tank.MAX_HP) {
+				System.out.print(i + "번 ");
+				System.out.println(tank);
+			}
+		}
+	}
+
+	private void repairTank() {
+		printDamagedTank();
+
+		int index = input("수리할 유닛 번호 선택");
+
+		scvs.get(MAIN).repair(tanks.get(index));
+	}
+
+	private void printDamagedDropShip() {
+		for (int i = 0; i < dropShips.size(); i++) {
+			DropShip dropShip = dropShips.get(i);
+			if (dropShip.hp < dropShip.MAX_HP) {
+				System.out.print(i + "번 ");
+				System.out.println(dropShip);
+			}
+		}
+	}
+
+	private void repairDropShip() {
+		printDamagedDropShip();
+
+		int index = input("수리할 유닛 번호 선택");
+
+		scvs.get(MAIN).repair(dropShips.get(index));
+	}
 
 	private int input(String message) {
 		System.out.println(message + " : ");

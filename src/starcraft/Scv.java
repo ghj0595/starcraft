@@ -17,7 +17,7 @@ public class Scv extends GroundUnit implements Repairable {
 				System.out.println(message);
 				
 				try {
-					Thread.sleep(600);
+					Thread.sleep(300);
 				} catch (Exception e) {
 				}
 			}
