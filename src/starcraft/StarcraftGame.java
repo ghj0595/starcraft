@@ -184,6 +184,9 @@ public class StarcraftGame {
 	}
 
 	private void repairTank() {
+		
+//		tanks.get(0).hp = 200;		
+		
 		if (printDamagedTank()) {
 			System.out.println("수리할 유닛이 없습니다.");
 			return;
